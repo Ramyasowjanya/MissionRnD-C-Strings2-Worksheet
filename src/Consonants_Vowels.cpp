@@ -19,8 +19,27 @@ NOTES: Don't create new string , Dont return anything ,you have been given two p
 
 #include <stddef.h>
 
-
+char convert_into_lowercase(char c)
+{
+	if(c>=65&&c<91)
+	c=c+32;
+	return c;
+}
 void count_vowels_and_consonants(char *str,int *consonants, int *vowels){
-
-
+	char c;
+	*vowels=0;*consonants=0;
+	if(str)
+	{
+		while(*str!='\0')
+		{
+			c=convert_into_lowercase(*str);
+			if(c=='a'||c=='e'||c=='i'||c=='o'||c=='u')
+			{
+			(*vowels)++;
+			}
+			else if(c>=97 &&c<=122)
+			(*consonants)++;
+		str++;
+		}
+	}
 }
